@@ -89,14 +89,17 @@
   <a href="#design">Network Design</a>
   <a href="#configuration">Configuration Steps</a>
   <a href="#output">Detection Output</a>
+  <a href="#working">Working</a>
+  <a href="#applications">Applications</a>
   <a href="#download">Downloads</a>
 </nav>
 
 <main>
   <section id="overview">
     <h2>Project Overview</h2>
-    <p>This project involves the development of a simulated Intrusion Detection System (IDS) using Cisco Packet Tracer. An IDS is a vital security mechanism used in computer networks to monitor and analyze traffic for signs of intrusion or malicious activity. This project focuses on implementing a signature-based Network Intrusion Detection System (NIDS) that inspects incoming ICMP packets and logs alerts when predefined attack patterns are matched.</p>
-    <p>The primary aim is to demonstrate how IDS can be integrated into a network to monitor traffic, detect potential threats (e.g., ping floods), and alert network administrators via a SYSLOG server. This setup is widely used in real-world enterprise networks to improve security and ensure prompt response to network anomalies.</p>
+    <p>This project involves the comprehensive development of a simulated Intrusion Detection System (IDS) using Cisco Packet Tracer. IDS plays a critical role in modern cybersecurity frameworks by monitoring network traffic for potential threats, vulnerabilities, or unauthorized access attempts.</p>
+    <p>Our focus is on creating a signature-based Network IDS (NIDS) that uses Cisco's IOS features to detect specific patterns in network traffic, such as ping floods or port scans. The simulated system inspects ICMP packets and alerts administrators when a match to a known attack signature is detected. All alerts are forwarded to a SYSLOG server, enabling centralized logging and real-time monitoring of security events.</p>
+    <p>This project not only illustrates how IDS works in practice but also provides hands-on experience in router configuration, network diagnostics, and threat detection, which are valuable skills in real-world IT infrastructure management.</p>
   </section>
 
   <section id="design">
@@ -163,6 +166,29 @@
     <img src="ids_output.png" alt="IDS Alert Output Screenshot">
   </section>
 
+  <section id="working">
+    <h2>Working of the System</h2>
+    <p>The IDS works by integrating Cisco IOS’s Intrusion Prevention System (IPS) with a preloaded set of attack signatures. The router monitors the network interface (GigabitEthernet0/0) and analyzes all inbound traffic. For each packet, it performs the following steps:</p>
+    <ol>
+      <li>Inspects the packet header and payload for patterns matching known threats.</li>
+      <li>If a match is found (e.g., ICMP Echo Request matching Sig ID 2004), an alert is generated.</li>
+      <li>This alert is logged locally in the router’s console.</li>
+      <li>The same alert is forwarded to the SYSLOG server for centralized logging and later analysis.</li>
+    </ol>
+    <p>This system does not block the traffic (since it's an IDS, not an IPS), but it provides administrators with timely visibility into possible intrusions or policy violations. It allows for early threat detection and aids in forensic investigation.</p>
+  </section>
+
+  <section id="applications">
+    <h2>Applications</h2>
+    <ul>
+      <li>🔐 <strong>Enterprise Networks:</strong> Enhance perimeter defense and detect internal/external attacks.</li>
+      <li>🏫 <strong>Academic Labs:</strong> Teach students about cybersecurity concepts and packet-level traffic monitoring.</li>
+      <li>🏥 <strong>Healthcare Systems:</strong> Protect sensitive medical data against unauthorized network access.</li>
+      <li>🏛 <strong>Government & Defense:</strong> Monitor classified or mission-critical networks for security breaches.</li>
+      <li>🔬 <strong>Research Labs:</strong> Test new network security methods and evaluate attack detection models.</li>
+    </ul>
+  </section>
+
   <section id="download" class="downloads">
     <h2>Download Project Files</h2>
     <p>You can download all the related files for this IDS project below:</p>
@@ -174,7 +200,7 @@
 </main>
 
 <footer>
-  <p>&copy; 2025 IDS Project | Created by Aswathi H S, Aarathy R Babu, Harshit Kumar, Sruthi Balakrishnan P, Krishnapriya V B  | All rights reserved.</p>
+  <p>&copy; 2025 IDS Project | Created by Aswathi H S, Aarathy R Babu, Harshit Kumar, Sruthi Balakrishnan P, Krishnapriya V B | All rights reserved.</p>
 </footer>
 
 </body>
