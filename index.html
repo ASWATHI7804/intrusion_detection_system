@@ -95,52 +95,71 @@
 <main>
   <section id="overview">
     <h2>Project Overview</h2>
-    <p>This project demonstrates the implementation of an Intrusion Detection System (IDS) using Cisco Packet Tracer. An IDS monitors network traffic to detect suspicious activities and potential threats. The project focuses on a signature-based Network IDS (NIDS) configured on a Cisco router to analyze ICMP packets (like pings) and generate alerts.</p>
-    <p>The aim of the project is to build a basic security infrastructure that detects intrusions and logs alerts to a centralized SYSLOG server. This enhances the network's ability to respond to potential attacks proactively.</p>
+    <p>This project involves the development of a simulated Intrusion Detection System (IDS) using Cisco Packet Tracer. An IDS is a vital security mechanism used in computer networks to monitor and analyze traffic for signs of intrusion or malicious activity. This project focuses on implementing a signature-based Network Intrusion Detection System (NIDS) that inspects incoming ICMP packets and logs alerts when predefined attack patterns are matched.</p>
+    <p>The primary aim is to demonstrate how IDS can be integrated into a network to monitor traffic, detect potential threats (e.g., ping floods), and alert network administrators via a SYSLOG server. This setup is widely used in real-world enterprise networks to improve security and ensure prompt response to network anomalies.</p>
   </section>
 
   <section id="design">
     <h2>Network Design</h2>
-    <p>The simulated network includes:</p>
+    <p>The simulated network topology includes three distinct LANs connected through routers. Each LAN contains multiple end devices such as PCs and laptops, along with a centralized SYSLOG server, and application servers like HTTP and FTP.</p>
     <ul>
-      <li>3 Routers (with dynamic routing enabled)</li>
-      <li>Multiple end devices (PCs and laptops)</li>
-      <li>1 SYSLOG Server</li>
-      <li>1 HTTP Server and 1 FTP Server</li>
-      <li>3 separate LANs interconnected via routers</li>
+      <li><strong>Router0:</strong> Acts as the IDS gateway for Network 1, monitoring inbound traffic.</li>
+      <li><strong>Router1 and Router2:</strong> Facilitate inter-network routing and simulate traffic sources.</li>
+      <li><strong>SYSLOG Server:</strong> Collects and logs intrusion alerts triggered by the IDS.</li>
+      <li><strong>Client PCs:</strong> Generate traffic, including ICMP (ping) packets to test detection.</li>
     </ul>
-    <p>Router0 is configured with IDS on interface GigabitEthernet0/0 to monitor all incoming ICMP traffic and log alerts when a match occurs with the configured IPS signature.</p>
+    <p>The IDS is specifically configured on the Router0’s GigabitEthernet0/0 interface to monitor incoming ICMP traffic using preloaded Cisco IOS signatures. Alerts are forwarded to the SYSLOG server for real-time logging and review.</p>
     <img src="ids_topology.png" alt="IDS Network Topology Diagram">
   </section>
 
   <section id="configuration">
     <h2>Configuration Steps</h2>
-    <p>The IDS is configured by activating the security license, defining a rule, enabling the basic signature category, and applying the rule to the interface. The SYSLOG server is also configured to receive alerts.</p>
+    <p>The configuration involves setting up the security features on the router, defining IPS rules, activating signature categories, and configuring logging mechanisms. Below is the detailed process:</p>
 
     <h3>Steps:</h3>
     <ol>
-      <li>Enable the security package: <code>license boot module c1900 technology-package securityk9</code></li>
-      <li>Define IPS config location: <code>ip ips config location flash:</code></li>
-      <li>Create an IPS rule: <code>ip ips name IDS</code></li>
-      <li>Enable signatures:
+      <li>Enable the security license package:
+        <code>license boot module c1900 technology-package securityk9</code></li>
+      <li>Define the IPS configuration file location:
+        <code>ip ips config location flash:</code></li>
+      <li>Create a named IPS rule:
+        <code>ip ips name IDS</code></li>
+      <li>Enable and activate IOS_BASIC signature category:
         <ul>
           <li><code>ip ips signature-category</code></li>
           <li><code>category all</code> → <code>retired true</code></li>
           <li><code>category IOS_BASIC</code> → <code>retired false</code></li>
         </ul>
       </li>
-      <li>Apply IDS to interface: <code>interface g0/0</code> → <code>ip ips IDS out</code></li>
-      <li>Enable logging: <code>logging host [SYSLOG_IP]</code>, <code>service timestamps log datetime msec</code></li>
+      <li>Apply the IPS rule to the incoming interface:
+        <code>interface g0/0</code> → <code>ip ips IDS out</code></li>
+      <li>Configure the SYSLOG server:
+        <ul>
+          <li><code>logging host [SYSLOG_IP]</code></li>
+          <li><code>service timestamps log datetime msec</code></li>
+          <li>Enable SYSLOG service in Packet Tracer on the server device</li>
+        </ul>
+      </li>
     </ol>
   </section>
 
   <section id="output">
     <h2>Detection Output</h2>
-    <p>After setup, pinging from another network into Network 1 generates alerts like:</p>
+    <p>Once the configuration is complete, the IDS becomes active on Router0. When a PC from another network sends ICMP ping requests to a PC in Network 1, the IDS compares these packets with signature ID 2004 (ICMP Echo Request). If matched, the router logs an alert in the CLI and forwards it to the SYSLOG server.</p>
+
+    <p><strong>Example Alert Message:</strong></p>
     <pre>
 %IPS-4-SIGNATURE: Sig:2004 Subsig:0 Sev:25 [192.168.10.2 -> 192.168.1.2:0] RiskRating:25
     </pre>
-    <p>These alerts appear in the router console and are also logged in the SYSLOG server. This confirms the IDS is active and monitoring network traffic as expected.</p>
+
+    <p>These messages confirm that:
+      <ul>
+        <li>The IDS signature engine is active and scanning traffic.</li>
+        <li>Alerts are successfully triggered for suspicious activity.</li>
+        <li>Logs are being forwarded to the SYSLOG server for auditing and review.</li>
+      </ul>
+    </p>
+
     <img src="ids_output.png" alt="IDS Alert Output Screenshot">
   </section>
 
@@ -150,7 +169,7 @@
     <a href="ids_project.pkt" download>📂 Cisco Packet Tracer File (.pkt)</a>
     <a href="ids_report.pdf" download>📄 Project Report (PDF)</a>
     <a href="ids_topology.png" download>🖼 Network Topology Diagram (PNG)</a>
-    <a href="ids_output.pdf" download>📄  IDS Alert Output  (PDF)</a>
+    <a href="ids_output.pdf" download>📄 IDS Alert Output (PDF)</a>
   </section>
 </main>
 
