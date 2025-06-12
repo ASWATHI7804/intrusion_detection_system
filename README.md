@@ -1,1 +1,1 @@
-# Intrusion_DEtection_system
+# Intrusion_Detection_system
