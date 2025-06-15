@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Intrusion Detection System</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+  <style>
+    body {
+      background-color: #e6f4fa;
+      color: #213547;
+      font-family: 'Segoe UI', sans-serif;
+    }
+    .navbar {
+      background-color: #1e3a5f;
+      padding: 1rem;
+      display: flex;
+      justify-content: center;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+    .navbar h4 {
+      color: #ffffff;
+      margin: 0;
+    }
+    .main-content {
+      padding: 2rem;
+    }
+    .content-tabs {
+      margin-bottom: 1.5rem;
+      border-bottom: 1px solid #8cbcd9;
+    }
+    .content-tabs .nav-link {
+      color: #2b597d;
+      margin-right: 1rem;
+      border: none;
+    }
+    .content-tabs .nav-link.active {
+      color: #1e3a5f;
+      border-bottom: 2px solid #1e3a5f;
+      font-weight: 600;
+    }
+    .tab-content {
+      display: none;
+    }
+    .tab-content.active {
+      display: block;
+    }
+    .card {
+      background-color: #f0faff;
+      color: #213547;
+      border: 1px solid #b5d6e8;
+    }
+    .assignment-btn {
+      background-color: #b5d6e8;
+      border: none;
+      color: #1e3a5f;
+      margin: 0.5rem;
+      padding: 1rem;
+      border-radius: 10px;
+      width: 250px;
+      cursor: pointer;
+    }
+    .assignment-btn:hover {
+      background-color: #a0c9e0;
+    }
+    h1, h2, h3 {
+      color: #1e3a5f;
+    }
+    a.download-btn {
+      background-color: #d0ebf9;
+      color: #1e3a5f;
+      padding: 12px 20px;
+      border-radius: 8px;
+      text-decoration: none;
+      display: inline-block;
+      margin: 0.5rem 0;
+    }
+    a.download-btn:hover {
+      background-color: #bde0f3;
+    }
+  </style>
+</head>
+<body>
+  <nav class="navbar">
+    <h4>Intrusion Detection System</h4>
+  </nav>
+  <div class="main-content">
+    <ul class="nav content-tabs">
+      <li class="nav-item">
+        <a class="nav-link active" href="#" onclick="showTab('home')">Home</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#" onclick="showTab('overview')">Overview</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#" onclick="showTab('configuration')">Configuration</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#" onclick="showTab('Results and Output')">Results & Output</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#" onclick="showTab('downloads')">Downloads</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#" onclick="showTab('assignments')">Assignments</a>
+      </li>
+    </ul>
+  <div class="main-content">
+    <div id="home" class="tab-content active">
+      <div class="card p-5">
+        <h1>Intrusion Detection System</h1>
+        <p class="lead">Design and Implementation of a Intrusion Detection System using Cisco Packet Tracer.</p>
+      </div>
+    </div>
+
+    <div id="overview" class="tab-content">
+      <h2>Project Overview</h2>
+      <p> An <strong>Intrusion Detection System (IDS)</strong> is a key security solution used to monitor network traffic, detect potential intrusions, and raise alerts about malicious or abnormal activities. It acts as a second line of defense, working alongside firewalls and anti-virus tools, to provide visibility into threats that traditional systems may miss.</p>
+      <p>
+      IDS solutions are categorized into two main types: <strong>Network-based IDS (NIDS)</strong> and <strong>Host-based IDS (HIDS)</strong>. While HIDS monitors internal system activities, configuration files, and application logs, NIDS focuses on external network traffic flowing between devices, routers, and firewalls.
+    </p>
+    <p>
+      This project aims to implement a working simulation of a <strong>Network-based IDS</strong> using <em>Cisco Packet Tracer</em>. The network topology consists of <strong>three interconnected networks</strong>—each designed with routers, switches, and end devices. Access Control Lists (ACLs) are applied to simulate traffic filtering, and custom rules are configured to monitor and identify potential threats.
+    </p>
+     <h3 style="color: #1e3a5f;"> Key Objectives and Features:</h3>
+    <ul style="margin-left: 1.5rem; list-style-type: disc;">
+      <li>Design and configure a simulated enterprise network with multiple subnets.</li>
+      <li>Apply ACLs to monitor, restrict, and control data flow between networks.</li>
+      <li>Use Packet Tracer’s simulation tools to analyze network behavior and intrusion patterns.</li>
+      <li>Demonstrate how the IDS detects anomalies like unauthorized pings, port scans, or access attempts.</li>
+      <li>Log and report detected threats using CLI alerts or centralized log view.</li>
+    </ul>
+
+    <p>
+      The system also emphasizes the <strong>limitations of IDS</strong>. It is important to understand that while IDS can effectively detect threats, it does not actively block them. Instead, it serves as a passive monitoring tool, sending alerts to the administrator or a centralized log system such as a <em>SIEM (Security Information and Event Management)</em>.
+    </p>
+
+    <h3 style="color: #1e3a5f;"> Real-World Relevance:</h3>
+    <p>
+      With cyber threats becoming more sophisticated, organizations need adaptive tools that can evolve along with attack vectors. IDS offers proactive threat detection in both academic simulations and real-life deployments. The project strengthens practical knowledge in network design, ACL usage, CLI configuration, and the fundamentals of cyber defense.
+    </p>
+
+    <p>
+      By working on this IDS simulation, students gain hands-on experience with the building blocks of intrusion detection technology and a clearer understanding of network security infrastructure in a connected world.
+    </p>
+  </div>
+
+    <div id="configuration" class="tab-content">
+      <h2>Configuration</h2>
+      <p>The IDS was implemented in a three-network topology designed in Cisco Packet Tracer. Each network includes its own set of devices such as PCs, switches, printers, and servers. The networks are connected via three routers (Router0, Router1, Router2) using dynamic routing. IDS is specifically implemented on <strong>Router0</strong> to monitor incoming ICMP traffic.</p>
+      <img src="images/ids_topology.png" alt="Intrusion Detection System design." style="max-width: 100%; border-radius: 8px; margin: 10px 0; box-shadow: 0 0 10px rgba(0,0,0,0.4);">
+  <p style="font-size: 0.9rem; color: #4e89ab;">Fig 1: Intrusion Detection System design.</p>
+      <h3 style="color: #1e3a5f;">Step-by-Step Configuration Process</h3>
+  <ol style="margin-left: 1.5rem;">
+    <li><strong>Device Setup:</strong> Place routers, switches, PCs, printers, servers, and assign IP addresses from the respective Class C subnets (e.g., 192.168.1.x, 192.168.10.x, 192.168.30.x).</li>
+
+    <li><strong>Enable Routing:</strong> Use dynamic routing (e.g., RIP or EIGRP) on all routers to enable inter-network communication across the three LANs.</li>
+
+    <li><strong>Configure SYSLOG, HTTP, and FTP Servers:</strong>
+      <ul>
+        <li>Enable only the <code>SYSLOG</code> service on the SYSLOG server for centralized logging.</li>
+        <li>Create a simple HTTP page on the HTTP server at IP <code>100.50.0.2</code>.</li>
+        <li>Configure the FTP server with username and password .</li>
+      </ul>
+    </li>
+
+    <li><strong>Enable IPS Features on Router0:</strong>
+      <ul>
+        <li>Activate the security license:</li>
+        <pre><code>license boot module c1900 technology-package securityk9</code></pre>
+        <li>Reload the router after license activation:</li>
+        <pre><code>do reload</code></pre>
+      </ul>
+    </li>
+
+    <li><strong>Create IPS Directory and Rule:</strong>
+      <pre><code>
+mkdir IPS
+ip ips config location flash:IPS
+ip ips name IDS_RULE
+      </code></pre>
+    </li>
+
+    <li><strong>Enable and Unretire Basic Signatures:</strong>
+      <pre><code>
+ip ips signature-category
+ category all
+  retired true
+ category ios_basic
+  retired false
+      </code></pre>
+    </li>
+
+    <li><strong>Apply IPS to Router0 Interface:</strong>
+      <pre><code>
+interface GigabitEthernet0/0
+ ip ips IDS_RULE out
+      </code></pre>
+    </li>
+
+    <li><strong>Configure SYSLOG Logging:</strong>
+      <pre><code>
+logging on
+logging host 192.168.1.6
+service timestamps log datetime msec
+      </code></pre>
+    </li>
+
+    <li><strong>Customize Signature 2004 (ICMP Echo Request):</strong>
+      <pre><code>
+ip ips signature-definition
+ signature 2004 0
+  status
+   enabled
+  engine
+   event-action produce-alert
+      </code></pre>
+    </li>
+  </ol>
+
+  <h3 style="color: #1e3a5f;">Network Testing</h3>
+  <p>
+    Connectivity between devices across networks was tested using the <code>ping</code> command. Initially, pings from PC1 (Network 1) to PC7 (Network 2) failed until routing was configured. After IDS activation, ICMP traffic entering Network 1 via Router0 was scanned. When detected, alerts were generated and sent to the SYSLOG server.
+  </p>
+
+  <p style="font-style: italic;">
+    This configuration demonstrates the use of signature-based IDS in a simulated network environment, giving hands-on experience with router CLI, access control, and traffic inspection techniques.
+  </p>
+    </div>
+
+    <div id="Results and Output" class="tab-content">
+      <h2>Results and Output</h2>
+      <p>After completing the IDS configuration, several tests were conducted to verify the effectiveness of signature-based detection. Below are the outputs obtained during the simulation:
+  </p><h3 style="color: #1e3a5f;">1. Packet Transmission Test</h3>
+  <p>
+    A test packet was sent from <strong>PC1 (Network 1)</strong> to <strong>PC7 (Network 3)</strong>. The ping was successful, and an acknowledgment was received, verifying end-to-end connectivity across the routed networks.
+  </p>
+  <img src="images/pc1_to_pc7_ping.png" alt="Ping from PC1 to PC7" style="max-width: 100%; border-radius: 8px; margin: 10px 0; box-shadow: 0 0 10px rgba(0,0,0,0.4);">
+  <p style="font-size: 0.9rem; color: #4e89ab;">Fig 1: Ping test from PC1 to PC7 successful.</p>
+
+  <h3 style="color: #1e3a5f;">2. Security Alert in Router 0</h3>
+  <p>
+    Router0, where the IDS rule was applied, successfully detected the ICMP Echo Request. The signature ID <strong>2004</strong> (associated with ICMP) triggered an alert.
+    This confirms that the IDS engine is actively monitoring incoming traffic.
+  </p>
+  <img src="images/router0_alert.png" alt="Router Alert Message" style="max-width: 100%; border-radius: 8px; margin: 10px 0; box-shadow: 0 0 10px rgba(0,0,0,0.4);">
+  <p style="font-size: 0.9rem; color: #4e89ab;">Fig 2: IDS Alert generated on Router0 CLI.</p>
+
+  <h3 style="color: #1e3a5f;">3. Alert Logged in SYSLOG Server</h3>
+  <p>
+    The triggered alert was forwarded to the <strong>SYSLOG server (192.168.1.6)</strong> for centralized logging. The server captured the alert with full details, including source and destination IPs, event severity, and signature match.
+  </p>
+  <img src="images/syslog_alert.png" alt="Syslog Alert Entry" style="max-width: 100%; border-radius: 8px; margin: 10px 0; box-shadow: 0 0 10px rgba(0,0,0,0.4);">
+  <p style="font-size: 0.9rem; color: #4e89ab;">Fig 3: Alert received and logged in SYSLOG server.</p>
+
+  <h3 style="color:#1e3a5f;">Summary</h3>
+  <ul style="margin-left: 1.5rem;">
+    <li>ICMP traffic successfully reached destination, validating routing and connectivity.</li>
+    <li>Signature-based IDS detected the traffic and raised an alert.</li>
+    <li>Alerts were both visible on Router0 and logged to SYSLOG server in real-time.</li>
+  </ul>
+
+  <p>
+    These results confirm that the Network-based IDS is correctly configured and functioning as expected. Although it does not block the traffic, it ensures visibility and alerts the network administrator about any suspicious activity.
+  </p>
+
+    </div>
+<div id="downloads" class="tab-content" style="padding: 2rem; color: #4e89ab;">
+  <h2 style="color: #1e3a5f;">⬇ Downloads</h2>
+  <p>You can download the project files directly using the buttons below:</p>
+
+  <div style="display: flex; flex-direction: column; gap: 1rem; max-width: 400px;">
+    <a href="ids_project.pkt" download class="btn btn-primary" style="background-color: #2563eb; border: none; padding: 12px 20px; border-radius: 8px; color: #fff; text-align: left;">
+      📂 Download Cisco Packet Tracer File (.pkt)
+    </a>
+
+    <a href="ids_report.pdf" download class="btn btn-success" style="background-color: #16a34a; border: none; padding: 12px 20px; border-radius: 8px; color: #fff; text-align: left;">
+      📄 Download Project Report (PDF)
+    </a>
+
+    <a href="ids_ppt.pptx" download class="btn btn-warning" style="background-color: #eab308; border: none; padding: 12px 20px; border-radius: 8px; color: #000; text-align: left;">
+      🖼 Download Project Presentation (PPT)
+    </a>
+  </div>
+</div>
+    <div id="assignments" class="tab-content">
+      <h2>Team Assignments</h2>
+      <div class="d-flex flex-wrap">
+        <button class="assignment-btn" onclick="showTab('Aarathy R Babu')">Aarathy R Babu</button>
+        <button class="assignment-btn" onclick="showTab('Aswathi H S')">Aswathi H S</button>
+        <button class="assignment-btn" onclick="showTab('Harshit Kumar')">Harshit Kumar</button>
+        <button class="assignment-btn" onclick="showTab('Sruthi Balakrishnan P')">Sruthi Balakrishnan P</button>
+        <button class="assignment-btn" onclick="showTab('Krishnapriya V B')">Krishnapriya V B</button>
+      </div>
+    </div>
+
+    <div id="ids" class="tab-content">
+      <h2>Intrusion Detection System (IDS)</h2>
+      <p>Describe your IDS project here with code, results, screenshots, and insights.</p>
+    </div>
+
+   <div id="Aarathy R Babu" class="tab-content" style="padding: 2rem; color: #4e89ab;">
+  <h2 style="color: #1e3a5f;">Assignment by Aarathy R Babu</h2>
+  <p>This section contains the assignment files submitted by Aarathy R Babu.</p>
+
+  <div style="margin-top: 1rem; display: flex; gap: 1rem; flex-wrap: wrap;">
+    <a href="ECE22002_report.zip" download
+       style="background-color: #1e293b; color: #ffffff; padding: 10px 20px; border-radius: 8px; text-decoration: none; display: inline-block;">
+      Download Report (PDF)
+    </a>
+
+    <a href="ECE22002_Cisco Packet.zip" download
+       style="background-color: #1e293b; color: #ffffff; padding: 10px 20px; border-radius: 8px; text-decoration: none; display: inline-block;">
+      Download Packet Tracer (.zip)
+    </a>
+  </div>
+</div>
+
+
+    <div id="Aswathi H S" class="tab-content" style="padding: 2rem; color: #4e89ab;">
+  <h2 style="color: #1e3a5f;">Assignment by Aswathi H S</h2>
+  <p>This section contains the assignment files submitted by Aswathi H S.</p>
+
+  <div style="margin-top: 1rem; display: flex; gap: 1rem; flex-wrap: wrap;">
+    <a href="CN_assignment_ece22010.zip" download
+       style="background-color: #1e293b; color: #ffffff; padding: 10px 20px; border-radius: 8px; text-decoration: none; display: inline-block;">
+      Download Report (PDF)
+    </a>
+
+    <a href="ece22010_packet_files.zip" download
+       style="background-color: #1e293b; color: #ffffff; padding: 10px 20px; border-radius: 8px; text-decoration: none; display: inline-block;">
+      Download Packet Tracer (.zip)
+    </a>
+  </div>
+</div>
+
+<div id="Harshit Kumar" class="tab-content" style="padding: 2rem; color: #4e89ab;">
+  <h2 style="color: #1e3a5f;">Assignment by Aswathi H S</h2>
+  <p>This section contains the assignment files submitted by Harshit Kumar.</p>
+
+  <div style="margin-top: 1rem; display: flex; gap: 1rem; flex-wrap: wrap;">
+    <a href="Assignment2_Report_017.pdf.zip" download
+       style="background-color: #1e293b; color: #ffffff; padding: 10px 20px; border-radius: 8px; text-decoration: none; display: inline-block;">
+      Download Report (PDF)
+    </a>
+
+    <a href="cisco_pack_22017.zip" download
+       style="background-color: #1e293b; color: #ffffff; padding: 10px 20px; border-radius: 8px; text-decoration: none; display: inline-block;">
+      Download Packet Tracer (.zip)
+    </a>
+  </div>
+</div>
+
+<div id="Sruthi Balakrishnan P" class="tab-content" style="padding: 2rem; color: #4e89ab;">
+  <h2 style="color: #1e3a5f;">Assignment by Aswathi H S</h2>
+  <p>This section contains the assignment files submitted by Sruthi Balakrishnan P.</p>
+
+  <div style="margin-top: 1rem; display: flex; gap: 1rem; flex-wrap: wrap;">
+    <a href="ECE22046_Assignment1&2.zip" download
+       style="background-color: #1e293b; color: #ffffff; padding: 10px 20px; border-radius: 8px; text-decoration: none; display: inline-block;">
+      Download Report (PDF)
+    </a>
+
+    <a href="ECE22046_ciscopacket.zip" download
+       style="background-color: #1e293b; color: #ffffff; padding: 10px 20px; border-radius: 8px; text-decoration: none; display: inline-block;">
+      Download Packet Tracer (.zip)
+    </a>
+  </div>
+</div>
+
+<div id="Krishnapriya V B" class="tab-content" style="padding: 2rem; color: #4e89ab;">
+  <h2 style="color: #1e3a5f;">Assignment by Aswathi H S</h2>
+  <p>This section contains the assignment files submitted by Krishnapriya V B.</p>
+
+  <div style="margin-top: 1rem; display: flex; gap: 1rem; flex-wrap: wrap;">
+    <a href="CNassignment1,2_ece052.zip" download
+       style="background-color: #1e293b; color: #ffffff; padding: 10px 20px; border-radius: 8px; text-decoration: none; display: inline-block;">
+      Download Report (PDF)
+    </a>
+
+    <a href="052_Packet files.zip" download
+       style="background-color: #1e293b; color: #ffffff; padding: 10px 20px; border-radius: 8px; text-decoration: none; display: inline-block;">
+      Download Packet Tracer (.zip)
+    </a>
+  </div>
+</div>
+
+    
+  <script>
+    function showTab(id) {
+      const contents = document.querySelectorAll('.tab-content');
+      const tabs = document.querySelectorAll('.nav-link');
+      contents.forEach(el => el.classList.remove('active'));
+      tabs.forEach(el => el.classList.remove('active'));
+      document.getElementById(id).classList.add('active');
+      const matchingTab = Array.from(tabs).find(t => t.textContent.trim() === id || t.textContent.trim() === id.replace(/([A-Z])/g, ' $1').trim());
+      if (matchingTab) matchingTab.classList.add('active');
+    }
+  </script>
+</body>
+</html>
+
