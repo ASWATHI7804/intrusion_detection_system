@@ -167,7 +167,7 @@
       </ul>
     </li>
 
-    <li><strong>Enable IPS Features on Router0:</strong>
+    <li><strong>Enable IDS Features on Router0:</strong>
       <ul>
         <li>Activate the security license:</li>
         <pre><code>license boot module c1900 technology-package securityk9</code></pre>
@@ -176,7 +176,7 @@
       </ul>
     </li>
 
-    <li><strong>Create IPS Directory and Rule:</strong>
+    <li><strong>Create IDS Directory and Rule:</strong>
       <pre><code>
 mkdir IPS
 ip ips config location flash:IPS
@@ -194,7 +194,7 @@ ip ips signature-category
       </code></pre>
     </li>
 
-    <li><strong>Apply IPS to Router0 Interface:</strong>
+    <li><strong>Apply IDS to Router0 Interface:</strong>
       <pre><code>
 interface GigabitEthernet0/0
  ip ips IDS_RULE out
